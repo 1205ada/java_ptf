@@ -8,7 +8,7 @@ import ru.stqa.pft.addressbook.model.GroupContact;
  * Created by Ada on 2016-12-18.
  */
 public class ContactHelper extends HelperBase {
-  
+
 
   public ContactHelper(FirefoxDriver wd) {
     super(wd);
