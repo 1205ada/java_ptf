@@ -1,13 +1,8 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import com.sun.jna.platform.win32.WinUser;
-import com.thoughtworks.selenium.webdriven.commands.KeyPressNative;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
-import ru.stqa.pft.addressbook.model.GroupContact;
-
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 /**
  * Created by Ada on 2016-12-18.
@@ -19,15 +14,6 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void fillForm(GroupContact groupContact) {
-      type(By.name("firstname"), groupContact.getFirstname());
-      type(By.name("middlename"),groupContact.getMiddlename());
-      type(By.name("lastname"),groupContact.getLastname());
-      type(By.name("nickname"),groupContact.getNickname());
-      type(By.name("address"),groupContact.getAddress());
-      type(By.name("email"),groupContact.getEmail());
-  }
-
   public void goToHomePage() {
       click(By.linkText("strona główna"));
   }
@@ -36,8 +22,13 @@ public class ContactHelper extends HelperBase {
       click(By.name("submit"));
   }
 
-  public void fillContactFrom() {
-      fillForm(new GroupContact("Anna", "Katarzyna", "Kowalska", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com"));
+  public void fillContactForm(ContactData contactData) {
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("email"), contactData.getEmail());
   }
 
   public void goToNewContact() {
@@ -60,10 +51,6 @@ public class ContactHelper extends HelperBase {
 
   public void initContactModification() {
     click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
-  }
-
-  public void refillContactFrom() {
-    fillForm(new GroupContact("Zenon", "Miłosz", "Kowalski", "zkowalski", "Krzemowa 5/2\n32-900 Katowice", "zkowalsk@gmail.com"));
   }
 
   public void submitModificationForm() {
