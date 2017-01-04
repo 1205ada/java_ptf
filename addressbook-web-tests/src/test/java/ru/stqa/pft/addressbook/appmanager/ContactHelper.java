@@ -19,10 +19,6 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void goToHomePage() {
-    click(By.linkText("strona główna"));
-  }
-
   public void submitForm() {
     click(By.name("submit"));
   }
