@@ -1,9 +1,10 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.apache.bcel.generic.Select;
+//import org.apache.bcel.generic.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -32,7 +33,7 @@ public class ContactHelper extends HelperBase {
 
 
     if (creation) {
-      new org.openqa.selenium.support.ui.Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -71,8 +72,8 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("strona główna"));
   }
 
-  public void createContact(ContactData contact, boolean creation) {
-    fillContactForm(contact, creation);
+  public void createContact(ContactData contact) {
+    fillContactForm(contact, true);
     submitForm();
     goToHomePage();
   }
