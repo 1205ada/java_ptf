@@ -9,11 +9,14 @@ import ru.stqa.pft.addressbook.model.ContactData;
 public class ContactModificationTests extends TestBase {
     @Test
     public void ContactModificationTests() {
-      app.getNavigationHelper().goToHomePage();
+      app.getContactHelper().goToHomePage();
+      if (! app.getContactHelper().isThereAContact()) {
+        app.getContactHelper().createContact(new ContactData("Agnieszka", "Katarzyna", "Kowalska", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com", "test1"), true);
+      }
       app.getContactHelper().selectContact();
       app.getContactHelper().initContactModification();
       app.getContactHelper().fillContactForm(new ContactData("Zenon", "Miłosz", "Kowalski", "zkowalski", "Krzemowa 5/2\n32-900 Katowice", "zkowalsk@gmail.com", null), false);
       app.getContactHelper().submitModificationForm();
-      app.getNavigationHelper().goToHomePage();
+      app.getContactHelper().goToHomePage();
   }
 }

@@ -47,7 +47,7 @@ public class HelperBase {
       try {
         wd.findElement(locator);
         return true;
-      } catch (org.openqa.selenium.NoSuchElementException e) {
+      } catch (org.openqa.selenium.NoSuchElementException ex) {
         return false;
       }
   }
