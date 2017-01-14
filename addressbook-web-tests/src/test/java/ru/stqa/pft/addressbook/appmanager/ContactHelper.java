@@ -3,11 +3,14 @@ package ru.stqa.pft.addressbook.appmanager;
 //import org.apache.bcel.generic.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -24,29 +27,27 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void fillContactForm(ContactData contactData, boolean creation) {
+  public void fillContactForm(ContactData contactData/*, boolean creation*/) {
     type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("middlename"), contactData.getMiddlename());
+    //type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("nickname"), contactData.getNickname());
-    type(By.name("address"), contactData.getAddress());
+    //type(By.name("nickname"), contactData.getNickname());
+   // type(By.name("address"), contactData.getAddress());
 
 
-    if (creation) {
+   /* if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
+    }*/
   }
 
   public void goToNewContact() {
     click(By.linkText("nowy wpis"));
   }
 
-  public void selectContact() {
-    if (!wd.findElement(By.name("selected[]")).isSelected()) {
-      click(By.name("selected[]"));
-    }
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deleteSelectedContacts() {
@@ -74,12 +75,29 @@ public class ContactHelper extends HelperBase {
 
   public void createContact(ContactData contact) {
     goToNewContact();
-    fillContactForm(contact, true);
+    fillContactForm(contact/*, true*/);
     submitForm();
     goToHomePage();
   }
 
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
+  }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+    for (WebElement element : elements) {
+      String name = wd.findElement(By.xpath("//tr[@name='entry']/td[3]")).getText();
+      String name2 = wd.findElement(By.xpath("//tr[@name='entry']/td[2]")).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+      ContactData contact = new ContactData(id, name, name2);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }
