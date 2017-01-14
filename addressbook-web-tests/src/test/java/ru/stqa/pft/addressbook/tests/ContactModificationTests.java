@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Ada on 2016-12-18.
  */
 public class ContactModificationTests extends TestBase {
-    @Test
+    @Test (enabled = false)
     public void ContactModificationTests() {
       app.getContactHelper().goToHomePage();
       if (!app.getContactHelper().isThereAContact()) {

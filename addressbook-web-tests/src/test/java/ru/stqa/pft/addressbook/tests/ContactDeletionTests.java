@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Ada on 2016-12-18.
  */
 public class ContactDeletionTests extends TestBase {
-  @Test
+  @Test (enabled = false)
   public void ContactDeletionTests() {
     app.getContactHelper().goToHomePage();
     if (! app.getContactHelper().isThereAContact()) {

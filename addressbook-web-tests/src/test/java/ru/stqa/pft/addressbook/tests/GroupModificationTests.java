@@ -5,13 +5,12 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
  * Created by Ada on 2016-12-18.
  */
-public class GroupModificationTests extends TestBase{
+public class GroupModificationTests extends TestBase {
 
   @Test
   public void testGroupModification(){
