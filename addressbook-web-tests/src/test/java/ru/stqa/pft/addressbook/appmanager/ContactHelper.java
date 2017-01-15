@@ -80,6 +80,14 @@ public class ContactHelper extends HelperBase {
     goToHomePage();
   }
 
+  public void modifyContact(int index, ContactData contact) {
+    selectContact(index);
+    initContactModification();
+    fillContactForm(new ContactData("Zenon", "Kowalski"/*,"Miłosz", "zkowalski", "Krzemowa 5/2\n32-900 Katowice", "zkowalsk@gmail.com", null), false*/));
+    submitModificationForm();
+    goToHomePage();
+  }
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
