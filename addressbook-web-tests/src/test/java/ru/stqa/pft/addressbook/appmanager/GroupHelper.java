@@ -62,7 +62,7 @@ public class GroupHelper extends HelperBase{
   public void modify(int index, GroupData group) {
     selectGroup(index);
     initGroupModification();
-    fillGroupForm(new GroupData("test_modification1", "test_modification2", "test_modification3"));
+    fillGroupForm(new GroupData().withName("test_mod1").withHeader("test_mod2").withFooter("test_mod3"));
     submitGroupModification();
     returnToGroupPage();
   }
@@ -87,8 +87,7 @@ public class GroupHelper extends HelperBase{
     for (WebElement element : elements) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      GroupData group = new GroupData(id, name, null,  null);
-      groups.add(group);
+      groups.add(new GroupData().withId(id).withName(name));
     }
     return groups;
   }
