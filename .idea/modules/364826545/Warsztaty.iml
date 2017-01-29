@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":Warsztaty" external.linked.project.path="$USER_HOME$/Warsztaty" external.root.project.path="$MODULE_DIR$/../../../addressbook-web-tests" external.system.id="GRADLE" external.system.module.group="1" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$USER_HOME$/Warsztaty">
+      <excludeFolder url="file://$USER_HOME$/Warsztaty/.gradle" />
+      <excludeFolder url="file://$USER_HOME$/Warsztaty/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

@@ -8,6 +8,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/Warsztaty" />
             <option value="$PROJECT_DIR$/addressbook-web-tests" />
           </set>
         </option>

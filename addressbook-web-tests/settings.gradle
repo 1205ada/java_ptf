@@ -1,0 +1,3 @@
+include '../../Warsztaty'
+findProject(':../../Warsztaty')?.name = 'Warsztaty'
+
