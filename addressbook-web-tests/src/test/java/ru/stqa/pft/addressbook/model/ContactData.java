@@ -14,6 +14,7 @@ public class ContactData {
   private String email2;
   private String email3;
   private String address;
+  private String details;
 
   public String getAllPhones() {
     return allPhones;
@@ -56,6 +57,13 @@ public class ContactData {
 
   public ContactData withAddress (String address) {
     this.address = address;
+    return this;
+  }
+
+  public String getDetails() { return  details;}
+
+  public ContactData withDetails (String details) {
+    this.details = details;
     return this;
   }
 
@@ -139,9 +147,14 @@ public class ContactData {
   public String getGroup() { return group; }*/
 
 
+  public void setId(int id) {
+    this.id = id;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
+
     if (o == null || getClass() != o.getClass()) return false;
 
     ContactData that = (ContactData) o;

@@ -13,7 +13,6 @@ import java.util.*;
  */
 public class ContactHelper extends HelperBase {
 
-
   public ContactHelper(WebDriver wd) {
     super(wd);
   }
@@ -155,8 +154,10 @@ public class ContactHelper extends HelperBase {
       String address = cells.get(3).getText();
       String allMails = cells.get(4).getText();
       String allPhones = cells.get(5).getText();
+      String details = cells.get(2).getText() + cells.get(1).getText() + cells.get(3).getText()
+              + cells.get(5).getText() + cells.get(4).getText();
       contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAddress(address).withAllMails(allMails).withAllPhones(allPhones));
+              .withAddress(address).withAllMails(allMails).withAllPhones(allPhones).withDetails(details));
     }
     return contacts;
 
@@ -169,10 +170,10 @@ public class ContactHelper extends HelperBase {
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
-    String email1 = wd.findElement(By.name("email")).getAttribute(("value"));
-    String email2 = wd.findElement(By.name("email2")).getAttribute(("value"));
-    String email3 = wd.findElement(By.name("email3")).getAttribute(("value"));
-    String address = wd.findElement(By.name("address")).getAttribute(("value"));
+    String email1 = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
@@ -186,4 +187,18 @@ public class ContactHelper extends HelperBase {
     cells.get(7).findElement(By.tagName("a")).click();
   }
 
+  public ContactData infoFromDetailsForm(ContactData contact) {
+    initContactDetailsById(contact.getId());
+    String details = wd.findElement(By.id("content")).getText();
+    System.out.println("Details = " + details);
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withDetails(details);
+
+  }
+  private void initContactDetailsById(int id) {
+    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='42']")));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(6).findElement(By.tagName("a")).click();
+  }
 }
