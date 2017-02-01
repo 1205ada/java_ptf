@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.util.NoSuchElementException;
 
 /**
@@ -31,6 +32,13 @@ public class HelperBase {
         e.clear();
         e.sendKeys(text);
       }
+    }
+  }
+
+
+  protected void attach(By locator, File file) {
+        if (file != null){
+          wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
   }
 
