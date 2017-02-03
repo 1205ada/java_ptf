@@ -14,18 +14,23 @@ public class ContactData {
   private String firstname;
   @Expose
   private String lastname;
+  @Expose
+  private String address;
   private String group;
+  @Expose
   private String homePhone;
   @Expose
   private String mobilePhone;
+  @Expose
   private String workPhone;
   private String allPhones;
   private String allMails;
-  private String email1;
-  private String email2;
-  private String email3;
   @Expose
-  private String address;
+  private String email1;
+  @Expose
+  private String email2;
+  @Expose
+  private String email3;
   private String details;
   private File photo;
 
@@ -165,8 +170,8 @@ public class ContactData {
   }
   public String getEmail() {
     return email;
-  }
-  public String getGroup() { return group; }*/
+  }*/
+  public String getGroup() { return group; }
 
 
   public void setId(int id) {

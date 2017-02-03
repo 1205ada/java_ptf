@@ -2,25 +2,45 @@
   <contact>
     <firstname>Name 0</firstname>
     <lastname>Lastname 0</lastname>
-    <mobilePhone>Number 0</mobilePhone>
+    <homePhone>Home number 0</homePhone>
+    <mobilePhone>Mobile number 0</mobilePhone>
+    <workPhone>Work number 0</workPhone>
+    <email1>Email1 0</email1>
+    <email2>Email2 0</email2>
+    <email3>Email3 0</email3>
     <address>City 0</address>
   </contact>
   <contact>
     <firstname>Name 1</firstname>
     <lastname>Lastname 1</lastname>
-    <mobilePhone>Number 1</mobilePhone>
+    <homePhone>Home number 1</homePhone>
+    <mobilePhone>Mobile number 1</mobilePhone>
+    <workPhone>Work number 1</workPhone>
+    <email1>Email1 1</email1>
+    <email2>Email2 1</email2>
+    <email3>Email3 1</email3>
     <address>City 1</address>
   </contact>
   <contact>
     <firstname>Name 2</firstname>
     <lastname>Lastname 2</lastname>
-    <mobilePhone>Number 2</mobilePhone>
+    <homePhone>Home number 2</homePhone>
+    <mobilePhone>Mobile number 2</mobilePhone>
+    <workPhone>Work number 2</workPhone>
+    <email1>Email1 2</email1>
+    <email2>Email2 2</email2>
+    <email3>Email3 2</email3>
     <address>City 2</address>
   </contact>
   <contact>
     <firstname>Name 3</firstname>
     <lastname>Lastname 3</lastname>
-    <mobilePhone>Number 3</mobilePhone>
+    <homePhone>Home number 3</homePhone>
+    <mobilePhone>Mobile number 3</mobilePhone>
+    <workPhone>Work number 3</workPhone>
+    <email1>Email1 3</email1>
+    <email2>Email2 3</email2>
+    <email3>Email3 3</email3>
     <address>City 3</address>
   </contact>
 </list>
