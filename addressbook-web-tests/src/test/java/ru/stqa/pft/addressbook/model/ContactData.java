@@ -60,6 +60,16 @@ public class ContactData {
   @Expose
   @Transient
   private String email2;
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
   @Expose
   @Transient
   private String email3;
@@ -67,6 +77,7 @@ public class ContactData {
   private String details;
 
   @Column (name = "photo")
+  @Type (type = "text")
   private String photo;
 
   public File getPhoto() {
