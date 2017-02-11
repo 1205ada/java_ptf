@@ -9,6 +9,7 @@
     <email2>Email2 0</email2>
     <email3>Email3 0</email3>
     <address>City 0</address>
+    <groups>test 0</groups>
   </contact>
   <contact>
     <firstname>Name 1</firstname>
@@ -20,5 +21,6 @@
     <email2>Email2 1</email2>
     <email3>Email3 1</email3>
     <address>City 1</address>
+    <groups>test 1</groups>
   </contact>
 </list>

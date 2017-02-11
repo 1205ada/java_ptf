@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
@@ -57,13 +58,18 @@ public class ContactCreationTests extends TestBase
 
     @Test (dataProvider = "validContactsFromXml")
     public void ContactCreationTests(ContactData contact) {
+        if (app.db().groups().size() == 0) {
+            GroupData group = new GroupData().withName("test 1").withHeader("header 1").withFooter("footer 1");
+            app.group().create(group);
+        }
         Groups groups = app.db().groups();
         File photo = new File("src/test/resources/stru.jpg");
-        ContactData newContact = new ContactData().withFirstname("Anna").withLastname("Kowalska").withPhoto(photo)
-                .inGroup(groups.iterator().next());
+        //ContactData newContact = new ContactData().withFirstname("Anna").withLastname("Kowalska").withPhoto(photo)
+              //  .inGroup(groups.iterator().next());
         Contacts before = app.contact().all();
         //ContactData contact = new ContactData("Anna", "Kowalska"/*, "Katarzyna", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com", "test1"*/);
         app.contact().create(contact);
+        app.contact().addToGroup(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
         Contacts after = app.contact().all();
         //assertEquals(after.size(), before.size() +1);
