@@ -56,13 +56,13 @@ public class ContactCreationTests extends TestBase
 
     @Test (dataProvider = "validContactsFromXml")
     public void ContactCreationTests(ContactData contact) {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         //ContactData contact = new ContactData("Anna", "Kowalska"/*, "Katarzyna", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com", "test1"*/);
         //File photo = new File("src/test/resources/stru.jpg");
         //ContactData contact = new ContactData().withFirstname("Anna").withLastname("Kowalska").withPhoto(photo);
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         //assertEquals(after.size(), before.size() +1);
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
