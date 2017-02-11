@@ -21,26 +21,4 @@
     <email3>Email3 1</email3>
     <address>City 1</address>
   </contact>
-  <contact>
-    <firstname>Name 2</firstname>
-    <lastname>Lastname 2</lastname>
-    <homePhone>Home number 2</homePhone>
-    <mobilePhone>Mobile number 2</mobilePhone>
-    <workPhone>Work number 2</workPhone>
-    <email1>Email1 2</email1>
-    <email2>Email2 2</email2>
-    <email3>Email3 2</email3>
-    <address>City 2</address>
-  </contact>
-  <contact>
-    <firstname>Name 3</firstname>
-    <lastname>Lastname 3</lastname>
-    <homePhone>Home number 3</homePhone>
-    <mobilePhone>Mobile number 3</mobilePhone>
-    <workPhone>Work number 3</workPhone>
-    <email1>Email1 3</email1>
-    <email2>Email2 3</email2>
-    <email3>Email3 3</email3>
-    <address>City 3</address>
-  </contact>
 </list>

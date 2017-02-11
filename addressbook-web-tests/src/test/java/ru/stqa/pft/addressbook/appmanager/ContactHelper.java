@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
 
-    attach(By.name("photo"), contactData.getPhoto());
+    //attach(By.name("photo"), contactData.getPhoto());
     //type(By.name("nickname"), contactData.getNickname());
     // type(By.name("address"), contactData.getAddress());
 
@@ -221,5 +221,10 @@ public class ContactHelper extends HelperBase {
     WebElement row = checkbox.findElement(By.xpath("./../.."));
     List<WebElement> cells = row.findElements(By.tagName("td"));
     cells.get(6).findElement(By.tagName("a")).click();
+  }
+
+  public void addToGroup(ContactData contact) {
+    selectContactById(contact.getId());
+    wd.findElement(By.name("add")).click();
   }
 }
