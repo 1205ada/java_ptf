@@ -3,10 +3,17 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+//import org.apache.bcel.generic.Select;
 
 /**
  * Created by Ada on 2016-12-18.
@@ -21,7 +28,7 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void fillContactForm(ContactData contactData/*, boolean creation*/) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     //type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
@@ -38,11 +45,15 @@ public class ContactHelper extends HelperBase {
     // type(By.name("address"), contactData.getAddress());
 
 
-   /* if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    if (creation) {
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() ==1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      }
+
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }*/
+    }
   }
 
   public void goToNewContact() {
@@ -82,7 +93,7 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact) {
     goToNewContact();
-    fillContactForm(contact/*, true*/);
+    fillContactForm(contact, true);
     submitForm();
     contactCache = null;
     goToHomePage();
@@ -92,7 +103,8 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     initContactModification();
     //fillContactForm(new ContactData("Zenon", "Kowalski"/*,"Miłosz", "zkowalski", "Krzemowa 5/2\n32-900 Katowice", "zkowalsk@gmail.com", null), false*/));
-    fillContactForm(new ContactData().withFirstname("Zenon").withLastname("Kowalski"));
+    //fillContactForm(new ContactData().withFirstname("Zenon").withLastname("Kowalski").inGroup("test1"));
+    fillContactForm(contact, true);
     submitModificationForm();
     contactCache = null;
     goToHomePage();

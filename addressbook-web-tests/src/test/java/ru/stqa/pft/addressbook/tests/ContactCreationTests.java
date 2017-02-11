@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,15 +57,18 @@ public class ContactCreationTests extends TestBase
 
     @Test (dataProvider = "validContactsFromXml")
     public void ContactCreationTests(ContactData contact) {
-        Contacts before = app.db().contacts();
+        Groups groups = app.db().groups();
+        File photo = new File("src/test/resources/stru.jpg");
+        ContactData newContact = new ContactData().withFirstname("Anna").withLastname("Kowalska").withPhoto(photo)
+                .inGroup(groups.iterator().next());
+        Contacts before = app.contact().all();
         //ContactData contact = new ContactData("Anna", "Kowalska"/*, "Katarzyna", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com", "test1"*/);
-        //File photo = new File("src/test/resources/stru.jpg");
-        //ContactData contact = new ContactData().withFirstname("Anna").withLastname("Kowalska").withPhoto(photo);
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.db().contacts();
+        Contacts after = app.contact().all();
         //assertEquals(after.size(), before.size() +1);
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+        verifyContactListInUI();
     }
 }
