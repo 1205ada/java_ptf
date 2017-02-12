@@ -1,15 +1,27 @@
 package ru.stqa.pft.addressbook.tests;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ContactCreationTests extends TestBase {
   int id;
 
- /* @DataProvider
+ @DataProvider
   public Iterator<Object[]> validContactsFromXml() throws IOException {
     try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.xml")))) {
       String xml = "";
@@ -39,9 +51,9 @@ public class ContactCreationTests extends TestBase {
       }.getType()); //List<GContactData>.class
       return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
-  }*/
+  }
 
-  @Test//(dataProvider = "validContactsFromXml")
+  @Test(dataProvider = "validContactsFromXml")
   public void ContactCreationTests() {
     if (app.db().groups().size() == 0) {
       GroupData group = new GroupData().withName("test 1").withHeader("header 1").withFooter("footer 1");
@@ -62,7 +74,7 @@ public class ContactCreationTests extends TestBase {
     }
     System.out.println("ID = " + id);
     app.contact().create(newContact);
-    app.contact().selectContactById(newContact.getId());
+    app.contact().selectContactById(id);
     app.contact().selectGroup(nameGroup);
     app.contact().addToGroup();
     //assertThat(app.contact().count(), equalTo(before.size() + 1));
