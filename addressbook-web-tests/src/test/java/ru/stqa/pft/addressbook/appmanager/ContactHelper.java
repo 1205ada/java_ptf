@@ -227,4 +227,8 @@ public class ContactHelper extends HelperBase {
   public void addToGroup() {
     wd.findElement(By.name("add")).click();
   }
+
+  public void selectGroup(String nameGroup) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(nameGroup);
+  }
 }

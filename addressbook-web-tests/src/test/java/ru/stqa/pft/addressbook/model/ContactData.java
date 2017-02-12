@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
@@ -10,7 +9,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-@XStreamAlias("contact")
+//@XStreamAlias("contact")
 @Entity
 @Table(name = "addressbook")
 public class ContactData {
@@ -231,7 +230,7 @@ public class ContactData {
     this.id = id;
   }
 
-  /*@Override
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
 
@@ -268,7 +267,7 @@ public class ContactData {
     result = 31 * result + (email3 != null ? email3.hashCode() : 0);
     result = 31 * result + (address != null ? address.hashCode() : 0);
     return result;
-  }*/
+  }
 
   public ContactData inGroup(GroupData group) {
     groups.add(group);
