@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/364826545/Warsztaty.iml" filepath="$PROJECT_DIR$/.idea/modules/364826545/Warsztaty.iml" group="Warsztaty" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/364826545/Warsztaty_main.iml" filepath="$PROJECT_DIR$/.idea/modules/364826545/Warsztaty_main.iml" group="Warsztaty" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/364826545/Warsztaty_test.iml" filepath="$PROJECT_DIR$/.idea/modules/364826545/Warsztaty_test.iml" group="Warsztaty" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_main.iml" group="addressbook-web-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests_test.iml" group="addressbook-web-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_main.iml" group="mantis-tests" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests_test.iml" group="mantis-tests" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_main.iml" group="sandbox" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sandbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sandbox_test.iml" group="sandbox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/warsztaty.iml" filepath="$PROJECT_DIR$/.idea/modules/warsztaty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/warsztaty_main.iml" filepath="$PROJECT_DIR$/.idea/modules/warsztaty_main.iml" group="warsztaty" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/warsztaty_test.iml" filepath="$PROJECT_DIR$/.idea/modules/warsztaty_test.iml" group="warsztaty" />
     </modules>
   </component>
 </project>
