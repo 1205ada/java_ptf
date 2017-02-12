@@ -223,8 +223,8 @@ public class ContactHelper extends HelperBase {
     cells.get(6).findElement(By.tagName("a")).click();
   }
 
-  public void addToGroup(ContactData contact) {
-    selectContactById(contact.getId());
+
+  public void addToGroup() {
     wd.findElement(By.name("add")).click();
   }
 }

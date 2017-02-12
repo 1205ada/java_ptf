@@ -23,6 +23,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase
 {
+    int id;
+
 
     @DataProvider
     public Iterator<Object[]> validContactsFromXml() throws IOException {
@@ -69,7 +71,11 @@ public class ContactCreationTests extends TestBase
         Contacts before = app.contact().all();
         //ContactData contact = new ContactData("Anna", "Kowalska"/*, "Katarzyna", "akowalska", "Krzemowa 3/2\n32-900 Katowice", "akowalska@gmail.com", "test1"*/);
         app.contact().create(contact);
-        app.contact().addToGroup(contact);
+      
+
+        System.out.println("ID = " + id);
+        app.contact().selectContactById(contact.getId());
+        app.contact().addToGroup();
         assertThat(app.contact().count(), equalTo(before.size() + 1));
         Contacts after = app.contact().all();
         //assertEquals(after.size(), before.size() +1);
